@@ -1,0 +1,2860 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.7.9"
+    },
+    "colab": {
+      "name": "0517_pandas.ipynb",
+      "provenance": []
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "zymKR2NkQyuz"
+      },
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "eWweLDlAQyu1",
+        "outputId": "9f707ac7-7952-43e5-b586-9ae2753e3f07"
+      },
+      "source": [
+        "x = [1, 2, 3, 4, 5]\n",
+        "s = pd.Series(x)\n",
+        "print(s)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    1\n",
+            "1    2\n",
+            "2    3\n",
+            "3    4\n",
+            "4    5\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "i0KromxvQyu2",
+        "outputId": "c046e469-fc27-4831-98ef-12eae260c3d8"
+      },
+      "source": [
+        "x = np.array([1, 2, 3, 4, 5])\n",
+        "s = pd.Series(x)\n",
+        "s"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1\n",
+              "1    2\n",
+              "2    3\n",
+              "3    4\n",
+              "4    5\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "S3aStJkcQyu2",
+        "outputId": "cfa4f298-d503-454a-839d-a867282b8a9d"
+      },
+      "source": [
+        "s[0]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "COAA86jJQyu3",
+        "outputId": "bb51157a-4aac-4427-f332-f65a09c0f7cf"
+      },
+      "source": [
+        "s[1:3]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1    2\n",
+              "2    3\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Ky1x0E78Qyu4",
+        "outputId": "3327d4e2-0901-4212-f555-bf7a49b04cfb"
+      },
+      "source": [
+        "s[::-1]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "4    5\n",
+              "3    4\n",
+              "2    3\n",
+              "1    2\n",
+              "0    1\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 24
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wpwkOJQ9Qyu4",
+        "outputId": "0dc2fc7f-1b39-4374-9fd1-f8ae0166dcad"
+      },
+      "source": [
+        "s[x > 3]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "3    4\n",
+              "4    5\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 25
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1Dbs6Q_lQyu4",
+        "outputId": "f692c2d3-9ad0-4d06-a61b-42b6f3068760"
+      },
+      "source": [
+        "s"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1\n",
+              "1    2\n",
+              "2    3\n",
+              "3    4\n",
+              "4    5\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HXQzQr_LQyu5",
+        "outputId": "76bf0156-4574-486e-f3f6-864c97351375"
+      },
+      "source": [
+        "s + 1"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    2\n",
+              "1    3\n",
+              "2    4\n",
+              "3    5\n",
+              "4    6\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 27
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "mjgykOzqQyu5",
+        "outputId": "75c3181a-04a4-4b37-f81a-8d3831315cfa"
+      },
+      "source": [
+        "s * 10"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    10\n",
+              "1    20\n",
+              "2    30\n",
+              "3    40\n",
+              "4    50\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 28
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1MbbQGFKQyu6",
+        "outputId": "1cb803a3-3dbd-4dc5-af1c-726ace339335"
+      },
+      "source": [
+        "s + s"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0     2\n",
+              "1     4\n",
+              "2     6\n",
+              "3     8\n",
+              "4    10\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "bZ57WC5gQyu6",
+        "outputId": "4a1f9c72-a693-4936-eb1f-319502bf0677"
+      },
+      "source": [
+        "s2 = pd.Series(x, index=['a', 'b', 'c', 'd', 'e'])\n",
+        "s2"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "a    1\n",
+              "b    2\n",
+              "c    3\n",
+              "d    4\n",
+              "e    5\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "StuBaMMnQyu6",
+        "outputId": "89c25431-4ba0-4ffc-da35-6063b573d72e"
+      },
+      "source": [
+        "s2['a']"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "zRoQpQotQyu7",
+        "outputId": "9e9dff56-062f-4bcc-ae55-9b75f8d7980f"
+      },
+      "source": [
+        "s2[0]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "E0S2MAiAQyu7",
+        "outputId": "8e2da771-c88e-41f9-ee7b-88bc22000751"
+      },
+      "source": [
+        "s2[1:3]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "b    2\n",
+              "c    3\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "5VEO-LfUQyu7",
+        "outputId": "3492fa38-fa93-42cd-a51f-b4d7d4eb5cbf"
+      },
+      "source": [
+        "s2['b':'d']"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "b    2\n",
+              "c    3\n",
+              "d    4\n",
+              "dtype: int32"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "FhwpOrefQyu8",
+        "outputId": "5c30214d-2e84-4fcd-c818-a4607743ec8d"
+      },
+      "source": [
+        "print(s.index)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[0, 1, 2, 3, 4]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fTYl8LtrQyu8",
+        "outputId": "477468bd-a90c-4ac5-a2e5-ec3179939036"
+      },
+      "source": [
+        "print(list(s.index))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[0, 1, 2, 3, 4]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "60NNqiAgQyu8",
+        "outputId": "b1bb5890-adcd-4f3f-f821-d6e231ee5d2d"
+      },
+      "source": [
+        "print(s.values)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[1 2 3 4 5]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1OjhA7RAQyu9",
+        "outputId": "01f4d311-e923-458e-d24c-d01087ecfcfb"
+      },
+      "source": [
+        "print(s2[['a', 'c']])"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "a    1\n",
+            "c    3\n",
+            "dtype: int32\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "F9780GT9Qyu9",
+        "outputId": "adfa5a5b-bfac-4cdc-ccf6-a9d876efbcc2"
+      },
+      "source": [
+        "s2.c"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "3"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 41
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KRrXVpnlQyu9",
+        "outputId": "759e8d86-6e01-4f03-e488-2f7624ce19d4"
+      },
+      "source": [
+        "x = {\"수학\":90, \"영어\":80, \"과학\":95, \"미술\":80}\n",
+        "x = pd.Series(x)\n",
+        "x"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "수학    90\n",
+              "영어    80\n",
+              "과학    95\n",
+              "미술    80\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 43
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "e1RPHNFoQyu-",
+        "outputId": "92dac7a4-9cbb-4e6e-8028-d9e72d2badda"
+      },
+      "source": [
+        "x['수학']"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "90"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 44
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "QwnZzoFAQyu-",
+        "outputId": "a7a69fcc-a165-413a-ef44-8e47ad549eb9"
+      },
+      "source": [
+        "x[\"영어\":]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "영어    80\n",
+              "과학    95\n",
+              "미술    80\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 46
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "I0aOoLxGQyu_",
+        "outputId": "9ad25a76-5581-414b-d8ed-f1b7a082cd76"
+      },
+      "source": [
+        "x2 = pd.Series(x, index=[\"수학\", \"영어\", \"과학\"])\n",
+        "x2"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "수학    90\n",
+              "영어    80\n",
+              "과학    95\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 47
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "t5YMsoApQyu_",
+        "outputId": "dee69a87-b0a7-4887-821d-eec0b40a72d7"
+      },
+      "source": [
+        "x"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "수학    90\n",
+              "영어    80\n",
+              "과학    95\n",
+              "미술    80\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 48
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "yWhINTO_Qyu_",
+        "outputId": "2989223e-f7a5-46e1-9d58-96bf01365edc"
+      },
+      "source": [
+        "student1 = {\"수학\":90, \"영어\":80, \"과학\":95, \"미술\":80}\n",
+        "student2 = {\"수학\":70, \"영어\":90, \"과학\":100, \"미술\":70}\n",
+        "\n",
+        "# index_1 = ['홍길동', '홍길동', '홍길동', '홍길동', '이몽룡', '이몽룡', '이몽룡', '이몽룡']\n",
+        "index_1 = ['홍길동' for i in range(4)] + ['이몽룡' for i in range(4)]\n",
+        "print(\"index_1\\n\", index_1)\n",
+        "\n",
+        "# index_2 = ['수학', '영어', '과학', '미술', '수학', '영어', '과학', '미술']\n",
+        "index_2 = [sub for sub in student1] + [sub for sub in student2] \n",
+        "print(\"\\nindex_1\\n\", index_2)\n",
+        "\n",
+        "values = list(student1.values()) + list(student2.values())\n",
+        "print(\"\\nvalues\\n\", values)\n",
+        "\n",
+        "students = pd.Series(values, index=[index_1, index_2])\n",
+        "print(\"\\nstudents\\n\", students)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "index_1\n",
+            " ['홍길동', '홍길동', '홍길동', '홍길동', '이몽룡', '이몽룡', '이몽룡', '이몽룡']\n",
+            "\n",
+            "index_1\n",
+            " ['수학', '영어', '과학', '미술', '수학', '영어', '과학', '미술']\n",
+            "\n",
+            "values\n",
+            " [90, 80, 95, 80, 70, 90, 100, 70]\n",
+            "\n",
+            "students\n",
+            " 홍길동  수학     90\n",
+            "     영어     80\n",
+            "     과학     95\n",
+            "     미술     80\n",
+            "이몽룡  수학     70\n",
+            "     영어     90\n",
+            "     과학    100\n",
+            "     미술     70\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ywyudKDCQyvA",
+        "outputId": "84d6d216-c7fd-409d-cee8-5e15a7509d8e"
+      },
+      "source": [
+        "students['홍길동']"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "수학    90\n",
+              "영어    80\n",
+              "과학    95\n",
+              "미술    80\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 54
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Irl85CVKQyvA",
+        "outputId": "54d9d523-a8c4-4ef7-a367-51b6337b446c"
+      },
+      "source": [
+        "students['홍길동']['영어']"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "80"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 55
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "an5POQHJQyvA",
+        "outputId": "451f1cb0-5018-4e84-f206-b9506222f02b"
+      },
+      "source": [
+        "x = [1, None, 2, None, 3, 4, None]\n",
+        "x = pd.Series(x)\n",
+        "x"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1.0\n",
+              "1    NaN\n",
+              "2    2.0\n",
+              "3    NaN\n",
+              "4    3.0\n",
+              "5    4.0\n",
+              "6    NaN\n",
+              "dtype: float64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 80
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Y1BHXYW8QyvB",
+        "outputId": "177d80cb-cfa2-4de3-cd9d-2f19f9a8cf2f"
+      },
+      "source": [
+        "print(x.sum())\n",
+        "print(x.max())\n",
+        "print(x.min())"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "10.0\n",
+            "4.0\n",
+            "1.0\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PJW-WOdIQyvB",
+        "outputId": "2ae744d1-4276-4a80-ffec-914afef4073c"
+      },
+      "source": [
+        "x.isnull().sum()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "3"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 60
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "CWMKoMTuQyvB",
+        "outputId": "4851a33f-1810-4b9b-e6a2-8b776a804bbe"
+      },
+      "source": [
+        "x.notnull().sum()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "4"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 61
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "cmtAdV9CQyvC",
+        "outputId": "d38f94b0-98f2-42fd-fdf7-f4960b1ad1a3"
+      },
+      "source": [
+        "x.dropna()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1.0\n",
+              "2    2.0\n",
+              "4    3.0\n",
+              "5    4.0\n",
+              "dtype: float64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 62
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ncNgmb36QyvC",
+        "outputId": "02477217-8c5d-42da-986b-7e333fc22ac0"
+      },
+      "source": [
+        "x"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1.0\n",
+              "1    NaN\n",
+              "2    2.0\n",
+              "3    NaN\n",
+              "4    3.0\n",
+              "5    4.0\n",
+              "6    NaN\n",
+              "dtype: float64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 68
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "TaRvxes4QyvC",
+        "outputId": "09f6dae8-587e-40e5-d142-7ebae2171264"
+      },
+      "source": [
+        "x.fillna(0)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1.0\n",
+              "1    0.0\n",
+              "2    2.0\n",
+              "3    0.0\n",
+              "4    3.0\n",
+              "5    4.0\n",
+              "6    0.0\n",
+              "dtype: float64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 81
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qAKobsHBQyvD",
+        "outputId": "efc5a1c5-0ca0-4942-f460-e791ae82e2d1"
+      },
+      "source": [
+        "x.dropna(inplace=True)\n",
+        "x"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1.0\n",
+              "2    2.0\n",
+              "4    3.0\n",
+              "5    4.0\n",
+              "dtype: float64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 64
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "wRLmrniEQyvD",
+        "outputId": "2c34084d-be8c-4ef8-d32c-4f7c972b2a93"
+      },
+      "source": [
+        "x = pd.Series([1, 2, 3])\n",
+        "y = pd.Series([4, 5, 6])\n",
+        "z = pd.Series([7, 8, 9])\n",
+        "\n",
+        "print(x)\n",
+        "print(y)\n",
+        "print(z)\n",
+        "print(\"\\n\")\n",
+        "pd.concat([x, y, z])"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    1\n",
+            "1    2\n",
+            "2    3\n",
+            "dtype: int64\n",
+            "0    4\n",
+            "1    5\n",
+            "2    6\n",
+            "dtype: int64\n",
+            "0    7\n",
+            "1    8\n",
+            "2    9\n",
+            "dtype: int64\n",
+            "\n",
+            "\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1\n",
+              "1    2\n",
+              "2    3\n",
+              "0    4\n",
+              "1    5\n",
+              "2    6\n",
+              "0    7\n",
+              "1    8\n",
+              "2    9\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 71
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "XEgUE7ZmQyvD",
+        "outputId": "c599b659-bec5-4b56-dfb5-f90596e36dfe"
+      },
+      "source": [
+        "pd.concat([x, y, z], verify_integrity=True)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ValueError",
+          "evalue": "Indexes have overlapping values: Int64Index([0, 1, 2], dtype='int64')",
+          "traceback": [
+            "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[1;31mValueError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[1;32m<ipython-input-72-3fd827901c17>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mpd\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mconcat\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m[\u001b[0m\u001b[0mx\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0my\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mz\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mverify_integrity\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;32mTrue\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[1;32m~\\anaconda3\\envs\\abangues\\lib\\site-packages\\pandas\\core\\reshape\\concat.py\u001b[0m in \u001b[0;36mconcat\u001b[1;34m(objs, axis, join, ignore_index, keys, levels, names, verify_integrity, sort, copy)\u001b[0m\n\u001b[0;32m    282\u001b[0m         \u001b[0mverify_integrity\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mverify_integrity\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    283\u001b[0m         \u001b[0mcopy\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mcopy\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 284\u001b[1;33m         \u001b[0msort\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0msort\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    285\u001b[0m     )\n\u001b[0;32m    286\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+            "\u001b[1;32m~\\anaconda3\\envs\\abangues\\lib\\site-packages\\pandas\\core\\reshape\\concat.py\u001b[0m in \u001b[0;36m__init__\u001b[1;34m(self, objs, axis, join, keys, levels, names, ignore_index, verify_integrity, copy, sort)\u001b[0m\n\u001b[0;32m    452\u001b[0m         \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mcopy\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mcopy\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    453\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 454\u001b[1;33m         \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mnew_axes\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_new_axes\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    455\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    456\u001b[0m     \u001b[1;32mdef\u001b[0m \u001b[0mget_result\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+            "\u001b[1;32m~\\anaconda3\\envs\\abangues\\lib\\site-packages\\pandas\\core\\reshape\\concat.py\u001b[0m in \u001b[0;36m_get_new_axes\u001b[1;34m(self)\u001b[0m\n\u001b[0;32m    519\u001b[0m         return [\n\u001b[0;32m    520\u001b[0m             \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_concat_axis\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;32mif\u001b[0m \u001b[0mi\u001b[0m \u001b[1;33m==\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mbm_axis\u001b[0m \u001b[1;32melse\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_comb_axis\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mi\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 521\u001b[1;33m             \u001b[1;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[1;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mndim\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    522\u001b[0m         ]\n\u001b[0;32m    523\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+            "\u001b[1;32m~\\anaconda3\\envs\\abangues\\lib\\site-packages\\pandas\\core\\reshape\\concat.py\u001b[0m in \u001b[0;36m<listcomp>\u001b[1;34m(.0)\u001b[0m\n\u001b[0;32m    519\u001b[0m         return [\n\u001b[0;32m    520\u001b[0m             \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_concat_axis\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;32mif\u001b[0m \u001b[0mi\u001b[0m \u001b[1;33m==\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mbm_axis\u001b[0m \u001b[1;32melse\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_comb_axis\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mi\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 521\u001b[1;33m             \u001b[1;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[1;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mndim\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    522\u001b[0m         ]\n\u001b[0;32m    523\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+            "\u001b[1;32m~\\anaconda3\\envs\\abangues\\lib\\site-packages\\pandas\\core\\reshape\\concat.py\u001b[0m in \u001b[0;36m_get_concat_axis\u001b[1;34m(self)\u001b[0m\n\u001b[0;32m    578\u001b[0m             )\n\u001b[0;32m    579\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 580\u001b[1;33m         \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_maybe_check_integrity\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mconcat_axis\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    581\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    582\u001b[0m         \u001b[1;32mreturn\u001b[0m \u001b[0mconcat_axis\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+            "\u001b[1;32m~\\anaconda3\\envs\\abangues\\lib\\site-packages\\pandas\\core\\reshape\\concat.py\u001b[0m in \u001b[0;36m_maybe_check_integrity\u001b[1;34m(self, concat_index)\u001b[0m\n\u001b[0;32m    586\u001b[0m             \u001b[1;32mif\u001b[0m \u001b[1;32mnot\u001b[0m \u001b[0mconcat_index\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mis_unique\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    587\u001b[0m                 \u001b[0moverlap\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mconcat_index\u001b[0m\u001b[1;33m[\u001b[0m\u001b[0mconcat_index\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mduplicated\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0munique\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 588\u001b[1;33m                 \u001b[1;32mraise\u001b[0m \u001b[0mValueError\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34mf\"Indexes have overlapping values: {overlap}\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    589\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    590\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+            "\u001b[1;31mValueError\u001b[0m: Indexes have overlapping values: Int64Index([0, 1, 2], dtype='int64')"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "vnFO_nDsQyvE",
+        "outputId": "edc25439-17a2-4229-c853-d570749286c6"
+      },
+      "source": [
+        "pd.concat([x, y, z], ignore_index=True)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1\n",
+              "1    2\n",
+              "2    3\n",
+              "3    4\n",
+              "4    5\n",
+              "5    6\n",
+              "6    7\n",
+              "7    8\n",
+              "8    9\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 73
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "c0g7H2-_QyvE",
+        "outputId": "1d20a9ef-4340-4372-b4d8-a6c3e2bce9bb"
+      },
+      "source": [
+        "pd.concat([x, y, z], ignore_index=True, axis=1)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>0</th>\n",
+              "      <th>1</th>\n",
+              "      <th>2</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>1</td>\n",
+              "      <td>4</td>\n",
+              "      <td>7</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2</td>\n",
+              "      <td>5</td>\n",
+              "      <td>8</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>3</td>\n",
+              "      <td>6</td>\n",
+              "      <td>9</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   0  1  2\n",
+              "0  1  4  7\n",
+              "1  2  5  8\n",
+              "2  3  6  9"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 74
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "61ndaSlvQyvE",
+        "outputId": "9d1c37bc-c158-419c-9783-ccda184a6141"
+      },
+      "source": [
+        "x = pd.Series([1, 2, 3, 4])\n",
+        "y = pd.Series([4, 5, 6])\n",
+        "z = pd.Series([7, 8, 9])\n",
+        "\n",
+        "print(x)\n",
+        "print(y)\n",
+        "print(z)\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    1\n",
+            "1    2\n",
+            "2    3\n",
+            "3    4\n",
+            "dtype: int64\n",
+            "0    4\n",
+            "1    5\n",
+            "2    6\n",
+            "dtype: int64\n",
+            "0    7\n",
+            "1    8\n",
+            "2    9\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "i8h9fJoTQyvE",
+        "outputId": "fa03fcab-65b1-431b-9df9-6997c3a82eab"
+      },
+      "source": [
+        "pd.concat([x, y, z])"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1\n",
+              "1    2\n",
+              "2    3\n",
+              "3    4\n",
+              "0    4\n",
+              "1    5\n",
+              "2    6\n",
+              "0    7\n",
+              "1    8\n",
+              "2    9\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 83
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "IszG3RsRQyvF",
+        "outputId": "7e1b5892-39e6-4991-a075-09adbdd5754f"
+      },
+      "source": [
+        "pd.concat([x, y, z], axis=1, join='outer')"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>0</th>\n",
+              "      <th>1</th>\n",
+              "      <th>2</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>1</td>\n",
+              "      <td>4.0</td>\n",
+              "      <td>7.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2</td>\n",
+              "      <td>5.0</td>\n",
+              "      <td>8.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>3</td>\n",
+              "      <td>6.0</td>\n",
+              "      <td>9.0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>4</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   0    1    2\n",
+              "0  1  4.0  7.0\n",
+              "1  2  5.0  8.0\n",
+              "2  3  6.0  9.0\n",
+              "3  4  NaN  NaN"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 84
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "VkUvq9Y0QyvF",
+        "outputId": "033c0bb9-34a8-4664-f125-844f291f6921"
+      },
+      "source": [
+        "pd.concat([x, y, z], axis=1, join='inner')"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>0</th>\n",
+              "      <th>1</th>\n",
+              "      <th>2</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>1</td>\n",
+              "      <td>4</td>\n",
+              "      <td>7</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2</td>\n",
+              "      <td>5</td>\n",
+              "      <td>8</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>3</td>\n",
+              "      <td>6</td>\n",
+              "      <td>9</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   0  1  2\n",
+              "0  1  4  7\n",
+              "1  2  5  8\n",
+              "2  3  6  9"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 85
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KV7X0yFSQyvF",
+        "outputId": "fbcebca3-b65c-46ea-eda4-b30eb9027897"
+      },
+      "source": [
+        "x = pd.Series([1, 2, 3, 4, 5])\n",
+        "y = pd.Series([6, 7, 8, 9, 0])\n",
+        "\n",
+        "print(x)\n",
+        "print(y)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    1\n",
+            "1    2\n",
+            "2    3\n",
+            "3    4\n",
+            "4    5\n",
+            "dtype: int64\n",
+            "0    6\n",
+            "1    7\n",
+            "2    8\n",
+            "3    9\n",
+            "4    0\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "IIYcNfRqQyvG",
+        "outputId": "d756d317-3648-40ce-ebb0-0ac84b80eaae"
+      },
+      "source": [
+        "print(x.add(10))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    11\n",
+            "1    12\n",
+            "2    13\n",
+            "3    14\n",
+            "4    15\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1Fx9uF5rQyvG",
+        "outputId": "8c511f94-1203-4583-c102-e7692018efc5"
+      },
+      "source": [
+        "print(x.add(y))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0     7\n",
+            "1     9\n",
+            "2    11\n",
+            "3    13\n",
+            "4     5\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "m3kS3G9yQyvG",
+        "outputId": "9ffbf51f-1f45-4c32-a99d-a1b0a18b29c8"
+      },
+      "source": [
+        "print(x.sub(y))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0   -5\n",
+            "1   -5\n",
+            "2   -5\n",
+            "3   -5\n",
+            "4    5\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "DS83cYCyQyvH",
+        "outputId": "9d2b9f02-9eae-48c1-8ef5-1c31c613a36e"
+      },
+      "source": [
+        "print(x.mul(y))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0     6\n",
+            "1    14\n",
+            "2    24\n",
+            "3    36\n",
+            "4     0\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Dw-Gl_7xQyvH",
+        "outputId": "470e8b8b-7e9d-4eaa-9a10-34ff193288e5"
+      },
+      "source": [
+        "print(x.div(2))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    0.5\n",
+            "1    1.0\n",
+            "2    1.5\n",
+            "3    2.0\n",
+            "4    2.5\n",
+            "dtype: float64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "lNgt6M_eQyvH",
+        "outputId": "d609783a-7784-428e-b623-cc3aca0f8cc9"
+      },
+      "source": [
+        "print(x.floordiv(2))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    0\n",
+            "1    1\n",
+            "2    1\n",
+            "3    2\n",
+            "4    2\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "1GBbhNGnQyvH",
+        "outputId": "61b961fb-622d-457b-fca0-e5f5a53ba69c"
+      },
+      "source": [
+        "print(x.mod(2))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0    1\n",
+            "1    0\n",
+            "2    1\n",
+            "3    0\n",
+            "4    1\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "sQ2U5lXUQyvH",
+        "outputId": "8ec0e014-5b37-46c2-8b39-6d7f8b95c34b"
+      },
+      "source": [
+        "print(x.pow(2))"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "0     1\n",
+            "1     4\n",
+            "2     9\n",
+            "3    16\n",
+            "4    25\n",
+            "dtype: int64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "XdCYgOd8QyvI",
+        "outputId": "bfe81ce0-2d69-4a95-e4cf-2a1cfe953753"
+      },
+      "source": [
+        "x.count()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "5"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 97
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "7TA7dIRzQyvI",
+        "outputId": "e240edf5-35af-4067-b23c-00b384b1d621"
+      },
+      "source": [
+        "x.min()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 98
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "VDCRR3vYQyvI",
+        "outputId": "ba305c4d-cffb-46be-ec05-e818eb636539"
+      },
+      "source": [
+        "x.max()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "5"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 99
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "FRNhgVkfQyvI",
+        "outputId": "f33ea411-d744-4937-d81c-eeb0dce55c84"
+      },
+      "source": [
+        "x.mean()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "3.0"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 100
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ftVXuKZbQyvJ",
+        "outputId": "e66339a9-0921-4396-fd07-c794295fb291"
+      },
+      "source": [
+        "x.median()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "3.0"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 101
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "AN2X31yeQyvJ",
+        "outputId": "407ca64a-e638-48ab-d0e4-3e5f658dff91"
+      },
+      "source": [
+        "x.sum()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "15"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 102
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "v7UTlJI2QyvJ",
+        "outputId": "eab52816-2478-436c-d148-06ac6c0fe084"
+      },
+      "source": [
+        "x.describe()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "count    5.000000\n",
+              "mean     3.000000\n",
+              "std      1.581139\n",
+              "min      1.000000\n",
+              "25%      2.000000\n",
+              "50%      3.000000\n",
+              "75%      4.000000\n",
+              "max      5.000000\n",
+              "dtype: float64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 103
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "nIdCVS2aQyvJ",
+        "outputId": "11fa1081-599f-47b6-aead-0bdb4f306f53"
+      },
+      "source": [
+        "x.head(2)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    1\n",
+              "1    2\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 104
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "0UN5t2GFQyvK",
+        "outputId": "7d6009fb-db54-4f3d-aac0-b3fe134e0d10"
+      },
+      "source": [
+        "x.tail(2)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "3    4\n",
+              "4    5\n",
+              "dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 105
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "4CiNkD_FQyvK",
+        "outputId": "1100b2c7-e726-43c4-876d-44f1af2476d2"
+      },
+      "source": [
+        "x = [np.nan, 1, 2, 3, 4, 5]\n",
+        "y = pd.Series([x[np.random.randint(0, 6)] for i in range(20)])\n",
+        "print(x)\n",
+        "print(y)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "[nan, 1, 2, 3, 4, 5]\n",
+            "0     NaN\n",
+            "1     1.0\n",
+            "2     2.0\n",
+            "3     2.0\n",
+            "4     1.0\n",
+            "5     3.0\n",
+            "6     5.0\n",
+            "7     5.0\n",
+            "8     3.0\n",
+            "9     NaN\n",
+            "10    NaN\n",
+            "11    5.0\n",
+            "12    5.0\n",
+            "13    1.0\n",
+            "14    1.0\n",
+            "15    1.0\n",
+            "16    1.0\n",
+            "17    4.0\n",
+            "18    4.0\n",
+            "19    4.0\n",
+            "dtype: float64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "b4frKayJQyvK",
+        "outputId": "6df71305-c2db-44af-a65f-a058855fbb3a"
+      },
+      "source": [
+        "print(\"결측값 개수:\", y.isnull().sum())"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "결측값 개수: 3\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "gG1ybkjZQyvK",
+        "outputId": "f84189a0-43b3-4bc6-d688-2802e121c41a"
+      },
+      "source": [
+        "print(y.dropna())"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "1     1.0\n",
+            "2     2.0\n",
+            "3     2.0\n",
+            "4     1.0\n",
+            "5     3.0\n",
+            "6     5.0\n",
+            "7     5.0\n",
+            "8     3.0\n",
+            "11    5.0\n",
+            "12    5.0\n",
+            "13    1.0\n",
+            "14    1.0\n",
+            "15    1.0\n",
+            "16    1.0\n",
+            "17    4.0\n",
+            "18    4.0\n",
+            "19    4.0\n",
+            "dtype: float64\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Z8XitiX8QyvL",
+        "outputId": "23537006-58ee-467f-cdf4-3ebf4c08b916"
+      },
+      "source": [
+        "y.fillna(y.mean())"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0     2.823529\n",
+              "1     1.000000\n",
+              "2     2.000000\n",
+              "3     2.000000\n",
+              "4     1.000000\n",
+              "5     3.000000\n",
+              "6     5.000000\n",
+              "7     5.000000\n",
+              "8     3.000000\n",
+              "9     2.823529\n",
+              "10    2.823529\n",
+              "11    5.000000\n",
+              "12    5.000000\n",
+              "13    1.000000\n",
+              "14    1.000000\n",
+              "15    1.000000\n",
+              "16    1.000000\n",
+              "17    4.000000\n",
+              "18    4.000000\n",
+              "19    4.000000\n",
+              "dtype: float64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 109
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qGBRBVu4QyvL"
+      },
+      "source": [
+        "sales_data = {'연도':[2015, 2016, 2017, 2018, 2019, 2020], \n",
+        "             '판매량':[103, 70, 130, 160, 190, 230], \n",
+        "             '매출':[500000, 300000, 400000, 550000, 700000, 680000],\n",
+        "             '순이익':[370000, 190000, 300000, 480000, 600000, 590000]\n",
+        "             }"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "oz4ohtJ-QyvL",
+        "outputId": "39eba08e-4a83-4a6f-d9ea-68c6dd3fb27c"
+      },
+      "source": [
+        "df = pd.DataFrame(sales_data)\n",
+        "df"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>연도</th>\n",
+              "      <th>판매량</th>\n",
+              "      <th>매출</th>\n",
+              "      <th>순이익</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>2015</td>\n",
+              "      <td>103</td>\n",
+              "      <td>500000</td>\n",
+              "      <td>370000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2016</td>\n",
+              "      <td>70</td>\n",
+              "      <td>300000</td>\n",
+              "      <td>190000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>2017</td>\n",
+              "      <td>130</td>\n",
+              "      <td>400000</td>\n",
+              "      <td>300000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>2018</td>\n",
+              "      <td>160</td>\n",
+              "      <td>550000</td>\n",
+              "      <td>480000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>2019</td>\n",
+              "      <td>190</td>\n",
+              "      <td>700000</td>\n",
+              "      <td>600000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5</th>\n",
+              "      <td>2020</td>\n",
+              "      <td>230</td>\n",
+              "      <td>680000</td>\n",
+              "      <td>590000</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "     연도  판매량      매출     순이익\n",
+              "0  2015  103  500000  370000\n",
+              "1  2016   70  300000  190000\n",
+              "2  2017  130  400000  300000\n",
+              "3  2018  160  550000  480000\n",
+              "4  2019  190  700000  600000\n",
+              "5  2020  230  680000  590000"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 111
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JIHZBk5GQyvM",
+        "outputId": "a5d8b525-f666-46b2-c622-9f26298ec5e5"
+      },
+      "source": [
+        "df.head(2)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>연도</th>\n",
+              "      <th>판매량</th>\n",
+              "      <th>매출</th>\n",
+              "      <th>순이익</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>2015</td>\n",
+              "      <td>103</td>\n",
+              "      <td>500000</td>\n",
+              "      <td>370000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2016</td>\n",
+              "      <td>70</td>\n",
+              "      <td>300000</td>\n",
+              "      <td>190000</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "     연도  판매량      매출     순이익\n",
+              "0  2015  103  500000  370000\n",
+              "1  2016   70  300000  190000"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 112
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "KBSfVl2cQyvM",
+        "outputId": "27c29bbc-6af8-47a3-b869-93c6ceacdb5e"
+      },
+      "source": [
+        "df.describe()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>연도</th>\n",
+              "      <th>판매량</th>\n",
+              "      <th>매출</th>\n",
+              "      <th>순이익</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>count</th>\n",
+              "      <td>6.000000</td>\n",
+              "      <td>6.000000</td>\n",
+              "      <td>6.000000</td>\n",
+              "      <td>6.000000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>mean</th>\n",
+              "      <td>2017.500000</td>\n",
+              "      <td>147.166667</td>\n",
+              "      <td>521666.666667</td>\n",
+              "      <td>421666.666667</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>std</th>\n",
+              "      <td>1.870829</td>\n",
+              "      <td>58.413754</td>\n",
+              "      <td>156258.333111</td>\n",
+              "      <td>164123.936909</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>min</th>\n",
+              "      <td>2015.000000</td>\n",
+              "      <td>70.000000</td>\n",
+              "      <td>300000.000000</td>\n",
+              "      <td>190000.000000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>25%</th>\n",
+              "      <td>2016.250000</td>\n",
+              "      <td>109.750000</td>\n",
+              "      <td>425000.000000</td>\n",
+              "      <td>317500.000000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>50%</th>\n",
+              "      <td>2017.500000</td>\n",
+              "      <td>145.000000</td>\n",
+              "      <td>525000.000000</td>\n",
+              "      <td>425000.000000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>75%</th>\n",
+              "      <td>2018.750000</td>\n",
+              "      <td>182.500000</td>\n",
+              "      <td>647500.000000</td>\n",
+              "      <td>562500.000000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>max</th>\n",
+              "      <td>2020.000000</td>\n",
+              "      <td>230.000000</td>\n",
+              "      <td>700000.000000</td>\n",
+              "      <td>600000.000000</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "                연도         판매량             매출            순이익\n",
+              "count     6.000000    6.000000       6.000000       6.000000\n",
+              "mean   2017.500000  147.166667  521666.666667  421666.666667\n",
+              "std       1.870829   58.413754  156258.333111  164123.936909\n",
+              "min    2015.000000   70.000000  300000.000000  190000.000000\n",
+              "25%    2016.250000  109.750000  425000.000000  317500.000000\n",
+              "50%    2017.500000  145.000000  525000.000000  425000.000000\n",
+              "75%    2018.750000  182.500000  647500.000000  562500.000000\n",
+              "max    2020.000000  230.000000  700000.000000  600000.000000"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 113
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Y6khshBQQyvM",
+        "outputId": "a6a02ab2-be8e-4a33-d13f-26de792507c9"
+      },
+      "source": [
+        "df.info()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "<class 'pandas.core.frame.DataFrame'>\n",
+            "RangeIndex: 6 entries, 0 to 5\n",
+            "Data columns (total 4 columns):\n",
+            " #   Column  Non-Null Count  Dtype\n",
+            "---  ------  --------------  -----\n",
+            " 0   연도      6 non-null      int64\n",
+            " 1   판매량     6 non-null      int64\n",
+            " 2   매출      6 non-null      int64\n",
+            " 3   순이익     6 non-null      int64\n",
+            "dtypes: int64(4)\n",
+            "memory usage: 320.0 bytes\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "AhQO6TjZQyvM",
+        "outputId": "6d81eba1-f8dd-4e80-cd17-bc3ec6f6754c"
+      },
+      "source": [
+        "df['판매량']"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0    103\n",
+              "1     70\n",
+              "2    130\n",
+              "3    160\n",
+              "4    190\n",
+              "5    230\n",
+              "Name: 판매량, dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 115
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-U_CZ4n-QyvN",
+        "outputId": "43099cc7-713a-472c-fb77-c265649e992f"
+      },
+      "source": [
+        "df.iloc[1]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "연도       2016\n",
+              "판매량        70\n",
+              "매출     300000\n",
+              "순이익    190000\n",
+              "Name: 1, dtype: int64"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 116
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "5S40gF9BQyvN",
+        "outputId": "315e9e6f-ec1b-4d3a-deb7-c983fe187845"
+      },
+      "source": [
+        "pd.DataFrame(sales_data, columns=['판매량', '매출', '순이익'], index=df['연도'])"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>판매량</th>\n",
+              "      <th>매출</th>\n",
+              "      <th>순이익</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>연도</th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>2015</th>\n",
+              "      <td>103</td>\n",
+              "      <td>500000</td>\n",
+              "      <td>370000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2016</th>\n",
+              "      <td>70</td>\n",
+              "      <td>300000</td>\n",
+              "      <td>190000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2017</th>\n",
+              "      <td>130</td>\n",
+              "      <td>400000</td>\n",
+              "      <td>300000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2018</th>\n",
+              "      <td>160</td>\n",
+              "      <td>550000</td>\n",
+              "      <td>480000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2019</th>\n",
+              "      <td>190</td>\n",
+              "      <td>700000</td>\n",
+              "      <td>600000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2020</th>\n",
+              "      <td>230</td>\n",
+              "      <td>680000</td>\n",
+              "      <td>590000</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "      판매량      매출     순이익\n",
+              "연도                       \n",
+              "2015  103  500000  370000\n",
+              "2016   70  300000  190000\n",
+              "2017  130  400000  300000\n",
+              "2018  160  550000  480000\n",
+              "2019  190  700000  600000\n",
+              "2020  230  680000  590000"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 118
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "BBl9BkzDQyvN",
+        "outputId": "abdbaccf-ef1d-4cb0-9bd4-1852b305e367"
+      },
+      "source": [
+        "%%writefile sales_data.csv\n",
+        "연도,판매량,매출,순익\n",
+        "2015,103,500000,370000\n",
+        "2016,70,300000,190000\n",
+        "2017,130,400000,300000\n",
+        "2018,60,550000,480000\n",
+        "2019,190,700000,600000\n",
+        "2020,230,680000,590000\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Overwriting sales_data.csv\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "SdHuzCbXQyvN",
+        "outputId": "58162254-9498-4c86-f31c-b4b4f1d2d92b"
+      },
+      "source": [
+        "sales_data = pd.read_csv('sales_data.csv', index_col='연도',  header=0, sep=',')\n",
+        "sales_data"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>판매량</th>\n",
+              "      <th>매출</th>\n",
+              "      <th>순익</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>연도</th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>2015</th>\n",
+              "      <td>103</td>\n",
+              "      <td>500000</td>\n",
+              "      <td>370000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2016</th>\n",
+              "      <td>70</td>\n",
+              "      <td>300000</td>\n",
+              "      <td>190000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2017</th>\n",
+              "      <td>130</td>\n",
+              "      <td>400000</td>\n",
+              "      <td>300000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2018</th>\n",
+              "      <td>60</td>\n",
+              "      <td>550000</td>\n",
+              "      <td>480000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2019</th>\n",
+              "      <td>190</td>\n",
+              "      <td>700000</td>\n",
+              "      <td>600000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2020</th>\n",
+              "      <td>230</td>\n",
+              "      <td>680000</td>\n",
+              "      <td>590000</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "      판매량      매출      순익\n",
+              "연도                       \n",
+              "2015  103  500000  370000\n",
+              "2016   70  300000  190000\n",
+              "2017  130  400000  300000\n",
+              "2018   60  550000  480000\n",
+              "2019  190  700000  600000\n",
+              "2020  230  680000  590000"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 133
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "pawSkHMcQyvN"
+      },
+      "source": [
+        "sales_data.to_csv('sales_data_save.csv', encoding='utf-8')"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "qEeYelitQyvN",
+        "outputId": "773f1af3-9a41-47fd-8f19-26d3433fc983"
+      },
+      "source": [
+        "sales_data2 = pd.read_csv('sales_data_2.csv', index_col='연도',  header=0, sep=',', encoding='cp949')\n",
+        "sales_data2"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>판매량</th>\n",
+              "      <th>매출</th>\n",
+              "      <th>순익</th>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>연도</th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "      <th></th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>2015</th>\n",
+              "      <td>103</td>\n",
+              "      <td>500000</td>\n",
+              "      <td>370000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2016</th>\n",
+              "      <td>70</td>\n",
+              "      <td>300000</td>\n",
+              "      <td>190000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2017</th>\n",
+              "      <td>130</td>\n",
+              "      <td>400000</td>\n",
+              "      <td>300000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2018</th>\n",
+              "      <td>60</td>\n",
+              "      <td>550000</td>\n",
+              "      <td>480000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2019</th>\n",
+              "      <td>190</td>\n",
+              "      <td>700000</td>\n",
+              "      <td>600000</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2020</th>\n",
+              "      <td>230</td>\n",
+              "      <td>680000</td>\n",
+              "      <td>590000</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "      판매량      매출      순익\n",
+              "연도                       \n",
+              "2015  103  500000  370000\n",
+              "2016   70  300000  190000\n",
+              "2017  130  400000  300000\n",
+              "2018   60  550000  480000\n",
+              "2019  190  700000  600000\n",
+              "2020  230  680000  590000"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 136
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "E-MRbxYpQyvO"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
