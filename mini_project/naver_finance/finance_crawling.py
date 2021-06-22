@@ -156,7 +156,7 @@ class DBUpdater:
         # timer 세팅
         tmnow = datetime.now()
         lastday = calendar.monthrange(tmnow.year, tmnow.month)[1]
-        if tmnow,calendar.month == 12 and tmnow.day == lastday:
+        if tmnow.calendar.month == 12 and tmnow.day == lastday:
             tmnext = tmnow.replace(year=tmnow.year+1, month = 1, day=1, hour= 17,
                 minute=0, second=0)
         elif tmnow.day == lastday:

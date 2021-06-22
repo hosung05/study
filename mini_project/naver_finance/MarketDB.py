@@ -13,7 +13,7 @@ class MarketDB:
     def __init__(self):
         """생성자: MariaDB 연결 및 종목코드 딕셔너리 생성"""
         self.conn = pymysql.connect(host='localhost', user='root',
-            password='####', db='INVESTAR', charset='utf8')
+            password='up318bin473!', db='INVESTAR', charset='utf8')
         self.codes = dict()
         self.getCompanyInfo()
         
