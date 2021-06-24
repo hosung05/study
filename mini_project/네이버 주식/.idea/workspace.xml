@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25cb19a4-dd90-4f55-845a-0901aae2eee8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Hyundai_car_stock.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../naver_finance/Hyundai_car_stock.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawling&amp;sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/../naver_finance/crawling&amp;sql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finace.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../naver_finance/finace.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finance_Data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../naver_finance/finance_Data.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../naver_finance/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../naver_finance/finance_crawling.py" beforeDir="false" afterPath="$PROJECT_DIR$/../naver_finance/finance_crawling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +74,7 @@
       <updated>1623975003954</updated>
       <workItem from="1623975005151" duration="912000" />
       <workItem from="1623990607828" duration="1260000" />
+      <workItem from="1624320832040" duration="428000" />
     </task>
     <servers />
   </component>

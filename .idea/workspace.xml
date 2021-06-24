@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="39a75096-836d-4072-87e4-22c7885b5282" name="Default Changelist" comment="" />
+    <list default="true" id="39a75096-836d-4072-87e4-22c7885b5282" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/mini_project/네이버 주식/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mini_project/네이버 주식/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +33,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623974966549</updated>
       <workItem from="1623974969713" duration="15000" />
+      <workItem from="1624519827920" duration="7000" />
     </task>
     <servers />
   </component>
